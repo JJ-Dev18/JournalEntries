@@ -9,19 +9,13 @@ export const JournalScreen = () => {
 
     const {active} = useSelector( state => state.notes );
     return (
-        
-        <div className="journal__main-content">
-           <Sidebar />
-          
-           <main>
-               {
-                   (active)
-                   ? (  <NoteScreen />)
-                   : <NothinSelected />
-               }
-               
-              
-           </main>
-        </div>
-    )
+      <div
+        className="journal__main-content
+        animate__animated animate__fadeIn"
+      >
+        <Sidebar />
+
+        <main>{active ? <NoteScreen /> : <NothinSelected />}</main>
+      </div>
+    );
 }

@@ -10,6 +10,7 @@ export const loadNotes = async ( uid ) => {
             id: snapHijo.id,
             ...snapHijo.data()
         })
+        
     });
     
     return notes;

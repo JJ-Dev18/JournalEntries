@@ -13,6 +13,7 @@ import { login } from '../components/actions/auth';
 import { PrivateRouter } from './PrivateRoute';
 import { PublicRouter } from './PublicRoute';
 import { loadNotes } from '../helpers/loadNotes';
+import {startLoadingNotes} from '../components/actions/notes'
   
 
 export const AppRouter = () => {
@@ -28,7 +29,7 @@ export const AppRouter = () => {
             if(user?.uid){
                 dispatch(login(user.uid,user.displayName))
                 setIsLoggedIn(true)
-                loadNotes(user.uid)
+                dispatch(startLoadingNotes(user.uid))
             }
             else{
                 setIsLoggedIn(false)

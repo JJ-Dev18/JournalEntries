@@ -8,12 +8,7 @@ import { startRegisterWithEmailPasswordName } from '../actions/auth'
 
 export const RegisterScreen = () => {
 
-    const [formValues, handleInputChange] = useForm({
-        name:'Hernando',
-        email: 'nando@gmail.com',
-        password: '123456',
-        password2: '123456'
-    })
+    const [formValues, handleInputChange] = useForm()
     const dispatch = useDispatch();
     const {msgError} = useSelector( state => state.ui );
     console.log(msgError)
@@ -50,53 +45,61 @@ export const RegisterScreen = () => {
         return true;
     }
     return (
-        <div>
-            <h3 className="auth__title">Register </h3>
-            <form onSubmit={handleRegister}>
-                {
-                    (msgError !== null) &&
-                    <div className="auth__alert-error">
-                      {msgError}
-                    </div>
-                }
-                
-            <input type="text"
-                placeholder="Name"
-                name="name"
-                className="auth__input"
-                autoComplete="off"
-                onChange={handleInputChange}
-                value={name}/>
+      <div>
+        <h3 className="auth__title">Register </h3>
+        <form
+          onSubmit={handleRegister}
+          className="animate__animated animate__fadeIn"
+        >
+          {msgError !== null && (
+            <div className="auth__alert-error">{msgError}</div>
+          )}
 
-                <input type="text"
-                placeholder="Email"
-                name="email"
-                className="auth__input"
-                onChange={handleInputChange}
-                value={email}/>
-                <input type="password"
-                placeholder="Password"
-                name="password"
-                className="auth__input"
-                onChange={handleInputChange}
-                value={password}/>
-                <input type="password"
-                placeholder="Confirm Password "
-                name="password2"
-                className="auth__input"
-                onChange={handleInputChange}
-                value={password2}/>
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            className="auth__input"
+            autoComplete="off"
+            onChange={handleInputChange}
+            value={name}
+          />
 
+          <input
+            type="text"
+            placeholder="Email"
+            name="email"
+            className="auth__input"
+            onChange={handleInputChange}
+            value={email}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            className="auth__input"
+            onChange={handleInputChange}
+            value={password}
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password "
+            name="password2"
+            className="auth__input"
+            onChange={handleInputChange}
+            value={password2}
+          />
 
-                <button className="btn btn-primary btn-block" type="submit" 
-                 >Register</button>
+          <button className="btn btn-primary btn-block" type="submit">
+            Register
+          </button>
 
-                 <hr />
-                
-                 <Link to="/auth/login" className="link mt-1">
-                     Already Registered ?
-                 </Link>
-            </form>
-        </div>
-    )
+          <hr />
+
+          <Link to="/auth/login" className="link mt-1">
+            Already Registered ?
+          </Link>
+        </form>
+      </div>
+    );
 }

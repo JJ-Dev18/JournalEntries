@@ -55,13 +55,14 @@
   border-radius: 4px;
   color: $dark_grey;
   display: flex;
+  justify-content: space-between;
   margin-bottom: 10px;
   overflow: hidden;
 }
 
 .journal__entry-pictures{
    
-    
+ 
     width: 75px;
     height: 75px;
 }
